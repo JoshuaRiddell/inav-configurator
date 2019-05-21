@@ -234,6 +234,7 @@
         "MS5611",
         "BMP280",
         "MS5607",
+        "MS583730",
         "FAKE"
       ],
       "enum": "baroSensor_e"
