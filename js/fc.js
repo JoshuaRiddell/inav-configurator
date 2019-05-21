@@ -1018,7 +1018,15 @@ var FC = {
         return ["NONE", "AUTO", "HMC5883", "AK8975", "GPSMAG", "MAG3110", "AK8963", "IST8310", "QMC5883", "MPU9250", "IST8308", "LIS3MDL", "FAKE"];
     },
     getBarometerNames: function () {
+<<<<<<< HEAD
         if (semver.gte(CONFIG.flightControllerVersion, "1.6.2")) {
+=======
+        if (semver.gte(CONFIG.flightControllerVersion, "2.2.0")) {
+            return ["NONE", "AUTO", "BMP085", "MS5611", "BMP280", "MS5607", "LPS25H", "MS583730", "FAKE"];
+        } else if (semver.gte(CONFIG.flightControllerVersion, "2.0.0")) {
+            return ["NONE", "AUTO", "BMP085", "MS5611", "BMP280", "MS5607", "LPS25H", "FAKE"];
+        } else if (semver.gte(CONFIG.flightControllerVersion, "1.6.2")) {
+>>>>>>> d0a96d60... Add new sensors from csiro board
             return ["NONE", "AUTO", "BMP085", "MS5611", "BMP280", "MS5607", "FAKE"];
         }
         else {
@@ -1034,7 +1042,21 @@ var FC = {
         }
     },
     getRangefinderNames: function () {
+<<<<<<< HEAD
         return [ "NONE", "HCSR04", "SRF10", "INAV_I2C", "VL53L0X", "MSP", "UIB"];
+=======
+        let data = [ "NONE", "HCSR04", "SRF10", "INAV_I2C", "VL53L0X", "MSP", "UIB"];
+
+        if (semver.gte(CONFIG.flightControllerVersion, "2.1.0")) {
+            data.push("Benewake TFmini")
+        }
+
+        if (semver.gte(CONFIG.flightControllerVersion, "2.2.0")) {
+            data.push("BR_PING")
+        }
+
+        return data;
+>>>>>>> d0a96d60... Add new sensors from csiro board
     },
     getOpticalFlowNames: function () {
         return [ "NONE", "PMW3901", "CXOF", "MSP", "FAKE" ];
